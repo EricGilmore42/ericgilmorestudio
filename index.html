@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Gilmore — Paintings</title>
+  <meta name="description" content="Original paintings by Eric Gilmore. Oil on canvas and linen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Hamburger menu button (top-left) -->
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Full-screen overlay menu -->
+  <nav class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <p class="menu-nav-label">Navigation</p>
+    <ul>
+      <li><a href="exhibits.html">Exhibits</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero banner -->
+  <section class="hero">
+    <h1>Eric Gilmore</h1>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Works</span>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section" id="works">
+    <h2>Selected Works</h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <script src="js/artworks.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -54,8 +54,9 @@ body {
   z-index: 200;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 10vw;
+  justify-content: flex-start;
+  padding: 15vh 10vw 10vh;
+  overflow-y: auto;
   transform: translateY(-100%);
   transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
   pointer-events: none;

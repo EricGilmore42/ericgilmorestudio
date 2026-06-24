@@ -32,7 +32,7 @@ if (galleryEl && typeof artworks !== 'undefined') {
   artworks.forEach(work => {
     const a = document.createElement('a');
     a.className = 'artwork-item';
-    a.href = `painting.html?id=${work.id}`;
+    a.href = `/painting/?id=${work.id}`;
     a.setAttribute('aria-label', work.title);
 
     const hasImage = work.images && work.images.length > 0;
@@ -148,7 +148,7 @@ if (paintingLayout && typeof artworks !== 'undefined') {
     if (!work.sold) {
       const inquire = document.createElement('a');
       inquire.className = 'painting-inquire';
-      inquire.href = `contact.html?re=${encodeURIComponent(work.title)}`;
+      inquire.href = `/contact/?re=${encodeURIComponent(work.title)}`;
       inquire.textContent = 'Inquire About This Work';
       right.appendChild(inquire);
     }

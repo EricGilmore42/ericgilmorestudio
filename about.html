@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exhibits — Eric Gilmore</title>
+  <title>About — Eric Gilmore</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -30,23 +30,42 @@
   <a class="site-name-link" href="index.html">Eric Gilmore</a>
   <a class="back-link" href="index.html">← Home</a>
 
-  <div class="page-header">
-    <h1>Exhibits</h1>
-  </div>
+  <!-- Bio section -->
+  <section class="about-section">
+    <div class="about-grid">
 
-  <div class="exhibits-list">
-    <!-- Add your exhibitions here -->
-    <div class="exhibit-item">
-      <div class="exhibit-year">2026</div>
-      <div>
-        <div class="exhibit-title">Group Show</div>
-        <div class="exhibit-venue">The Guild</div>
-        <div class="exhibit-location">Culver City, CA</div>
-        <div class="exhibit-dates">Dec 5, 2026</div>
+      <div class="about-photo-col">
+        <img src="images/eric-headshot/eric-gilmore-headshot.jpeg" alt="Eric Gilmore">
       </div>
+
+      <div class="about-text-col">
+        <p class="about-bio">
+          <!-- Add your bio here -->
+          Los Angeles-based painter working in acrylic, oil, and spray paint.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Instagram section -->
+  <section class="instagram-section">
+    <div class="instagram-header">
+      <h2 class="instagram-label">Follow Along</h2>
+      <a class="instagram-handle" href="https://www.instagram.com/eeeerrricccc" target="_blank" rel="noopener noreferrer">
+        @eeeerrricccc
+      </a>
     </div>
 
+    <behold-widget feed-id="dPyx37j0oHDRYqXcAyXP"></behold-widget>
+    <script>
+      (() => {
+        const d=document,s=d.createElement("script");s.type="module";
+        s.src="https://w.behold.so/widget.js";d.head.append(s);
+      })();
+    </script>
 
+  </section>
 
   <script src="js/main.js"></script>
 </body>

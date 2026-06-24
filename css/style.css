@@ -584,3 +584,63 @@ body {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* ── Mobile & Touch ── */
+
+/* Remove tap highlight on iOS */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Prevent iOS from zooming into form inputs */
+.form-input,
+.form-textarea {
+  font-size: 16px;
+}
+
+/* On touch devices (no hover), always show price overlay */
+@media (hover: none) {
+  .artwork-hover {
+    opacity: 1;
+    background: rgba(10, 10, 10, 0.38);
+  }
+  .artwork-item:hover .artwork-img,
+  .artwork-item:hover .artwork-placeholder {
+    transform: none;
+  }
+}
+
+/* On mobile, show painting info ABOVE images so price is seen first */
+@media (max-width: 860px) {
+  .painting-left  { order: 2; }
+  .painting-right { order: 1; }
+}
+
+@media (max-width: 600px) {
+  /* Header elements */
+  .menu-btn { top: 22px; left: 16px; }
+  .site-name-link { font-size: 22px; top: 20px; }
+  .back-link { top: 28px; right: 16px; font-size: 11px; }
+
+  /* Hero */
+  .hero h1 { padding: 0 20px; }
+
+  /* Gallery */
+  .gallery-section { padding: 48px 16px 80px; }
+
+  /* Painting detail */
+  .painting-layout { padding-top: 72px; }
+  .painting-left   { padding: 24px 16px 48px; }
+  .painting-right  { padding: 24px 16px 40px; }
+  .painting-title  { font-size: 28px; }
+  .painting-meta li { font-size: 12px; }
+  .painting-inquire { width: 100%; text-align: center; padding: 16px; }
+
+  /* Exhibits */
+  .page-header { padding: 90px 20px 40px; }
+  .exhibits-list { padding: 0 20px 80px; }
+  .exhibit-item { grid-template-columns: 72px 1fr; gap: 12px; padding: 24px 0; }
+
+  /* Contact */
+  .contact-left  { padding: 90px 20px 40px; }
+  .contact-right { padding: 32px 20px 80px; }
+  .contact-form  { max-width: 100%; }
+}

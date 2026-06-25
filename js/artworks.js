@@ -9,13 +9,13 @@ const artworks = [
     sold: false,
     description: "",
     images: [
-      "images/Cowgirl/Cowgirl-header.jpg",
-      "images/Cowgirl/IMG_0033.jpeg",
-      "images/Cowgirl/IMG_0034.jpeg",
-      "images/Cowgirl/IMG_0035.jpeg",
-      "images/Cowgirl/IMG_0036.jpeg"
+      "/images/Cowgirl/Cowgirl-header.jpg",
+      "/images/Cowgirl/IMG_0033.jpeg",
+      "/images/Cowgirl/IMG_0034.jpeg",
+      "/images/Cowgirl/IMG_0035.jpeg",
+      "/images/Cowgirl/IMG_0036.jpeg"
     ],
-    thumbnail: "images/Cowgirl/Cowgirl-header.jpg",
+    thumbnail: "/images/Cowgirl/Cowgirl-header.jpg",
     placeholder: { color: "#c8a86a", ratio: 1 }
   },
   {
@@ -28,12 +28,12 @@ const artworks = [
     sold: false,
     description: "",
     images: [
-      "images/dragon-in-void/dragon-in-void-header.jpeg",
-      "images/dragon-in-void/IMG_9943.jpeg",
-      "images/dragon-in-void/IMG_9945.jpeg",
-      "images/dragon-in-void/IMG_9946.jpeg"
+      "/images/dragon-in-void/dragon-in-void-header.jpeg",
+      "/images/dragon-in-void/IMG_9943.jpeg",
+      "/images/dragon-in-void/IMG_9945.jpeg",
+      "/images/dragon-in-void/IMG_9946.jpeg"
     ],
-    thumbnail: "images/dragon-in-void/dragon-in-void-header.jpeg",
+    thumbnail: "/images/dragon-in-void/dragon-in-void-header.jpeg",
     placeholder: { color: "#9ab3c8", ratio: 1 }
   },
   {
@@ -46,10 +46,10 @@ const artworks = [
     sold: false,
     description: "",
     images: [
-      "images/girl-in-night/girl-in-night-header.jpg",
-      "images/girl-in-night/IMG_9550.jpg"
+      "/images/girl-in-night/girl-in-night-header.jpg",
+      "/images/girl-in-night/IMG_9550.jpg"
     ],
-    thumbnail: "images/girl-in-night/girl-in-night-header.jpg",
+    thumbnail: "/images/girl-in-night/girl-in-night-header.jpg",
     placeholder: { color: "#b8a8c0", ratio: 1 }
   }
 ];

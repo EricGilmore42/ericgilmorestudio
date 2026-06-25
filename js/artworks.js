@@ -37,6 +37,24 @@ const artworks = [
     placeholder: { color: "#9ab3c8", ratio: 1 }
   },
   {
+    id: 5,
+    title: "Cowboy Bang Gun",
+    year: 2025,
+    medium: "Acrylic, Oil, Model Paste, and Spray Paint",
+    dimensions: '72" x 48"',
+    price: 1300,
+    sold: true,
+    description: "",
+    images: [
+      "/images/cowboy-bang-gun/cowboy-header.jpeg",
+      "/images/cowboy-bang-gun/IMG_9463.jpeg",
+      "/images/cowboy-bang-gun/IMG_9464.jpeg",
+      "/images/cowboy-bang-gun/IMG_9465.jpeg"
+    ],
+    thumbnail: "/images/cowboy-bang-gun/cowboy-header.jpeg",
+    placeholder: { color: "#c8a870", ratio: 1 }
+  },
+  {
     id: 4,
     title: "Geisha Dragon",
     year: 2025,

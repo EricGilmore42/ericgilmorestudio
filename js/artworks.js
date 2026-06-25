@@ -37,6 +37,21 @@ const artworks = [
     placeholder: { color: "#9ab3c8", ratio: 1 }
   },
   {
+    id: 4,
+    title: "Geisha Dragon",
+    year: 2025,
+    medium: "Acrylic, Oil Pastel, and Spray Paint",
+    dimensions: "",
+    price: 1500,
+    sold: true,
+    description: "",
+    images: [
+      "/images/geisha-dragon/geisha-dragon-header.jpg"
+    ],
+    thumbnail: "/images/geisha-dragon/geisha-dragon-header.jpg",
+    placeholder: { color: "#c8b0a0", ratio: 1 }
+  },
+  {
     id: 3,
     title: "Girl in the Night",
     year: 2024,

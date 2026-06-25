@@ -37,6 +37,21 @@ const artworks = [
     placeholder: { color: "#9ab3c8", ratio: 1 }
   },
   {
+    id: 6,
+    title: "Abstract Black Pink",
+    year: 2026,
+    medium: "Spray Paint, Acrylic, and Model Paste",
+    dimensions: '84.5" x 48.75"',
+    price: 1800,
+    sold: false,
+    description: "",
+    images: [
+      "/images/abstract-erics-black-pink/abstract-black-pink-blue-eric.jpeg"
+    ],
+    thumbnail: "/images/abstract-erics-black-pink/abstract-black-pink-blue-eric.jpeg",
+    placeholder: { color: "#c0a0b8", ratio: 1 }
+  },
+  {
     id: 5,
     title: "Cowboy Bang Gun",
     year: 2025,

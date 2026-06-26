@@ -246,6 +246,12 @@ body {
   font-style: italic;
   font-size: 28px;
   color: #ddd;
+  transition: font-size 0.2s ease;
+}
+
+.artwork-item:hover .artwork-price-tag.is-sold {
+  font-size: 40px;
+  font-weight: 700;
 }
 
 /* ── Painting Detail Page ── */
@@ -692,15 +698,15 @@ body {
   font-size: 16px;
 }
 
-/* On touch devices (no hover), always show price overlay */
+/* On touch devices: hidden by default, revealed on tap */
 @media (hover: none) {
-  .artwork-hover {
-    opacity: 1;
-    background: rgba(10, 10, 10, 0.38);
-  }
   .artwork-item:hover .artwork-img,
   .artwork-item:hover .artwork-placeholder {
     transform: none;
+  }
+  .artwork-item.touch-active .artwork-hover {
+    opacity: 1;
+    background: rgba(10, 10, 10, 0.5);
   }
 }
 
@@ -708,6 +714,40 @@ body {
 @media (max-width: 860px) {
   .painting-left  { order: 2; }
   .painting-right { order: 1; }
+}
+
+/* ── Footer ── */
+.site-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.site-footer a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer a:hover { color: #111; }
+
+.footer-divider { opacity: 0.4; }
+
+@media (max-width: 600px) {
+  .site-footer {
+    left: 16px;
+    bottom: 14px;
+    font-size: 9px;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 600px) {

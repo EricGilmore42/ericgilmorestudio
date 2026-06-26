@@ -64,6 +64,17 @@ if (galleryEl && typeof artworks !== 'undefined') {
     overlay.appendChild(tag);
     a.appendChild(overlay);
 
+    // Mobile: first tap shows price, second tap navigates
+    if (window.matchMedia('(hover: none)').matches) {
+      a.addEventListener('click', (e) => {
+        if (!a.classList.contains('touch-active')) {
+          e.preventDefault();
+          document.querySelectorAll('.artwork-item.touch-active').forEach(el => el.classList.remove('touch-active'));
+          a.classList.add('touch-active');
+        }
+      });
+    }
+
     galleryEl.appendChild(a);
   });
 }

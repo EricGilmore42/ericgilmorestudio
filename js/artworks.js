@@ -37,6 +37,21 @@ const artworks = [
     placeholder: { color: "#9ab3c8", ratio: 1 }
   },
   {
+    id: 7,
+    title: "Pink Leopard",
+    year: 2025,
+    medium: "Acrylic and Oil Stick",
+    dimensions: '18" x 18"',
+    price: 400,
+    sold: false,
+    description: "",
+    images: [
+      "/images/pink-lepord/pink-lepord-header.jpeg"
+    ],
+    thumbnail: "/images/pink-lepord/pink-lepord-header.jpeg",
+    placeholder: { color: "#e8b0c0", ratio: 1 }
+  },
+  {
     id: 6,
     title: "Abstract Black Pink",
     year: 2026,

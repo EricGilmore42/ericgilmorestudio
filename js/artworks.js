@@ -20,7 +20,7 @@ const artworks = [
   },
   {
     id: 2,
-    title: "Dragon in Void",
+    title: "Into the Void",
     year: 2026,
     medium: "Acrylic, Oil, and Spray Paint",
     dimensions: '84.5" × 48.75"',
@@ -53,7 +53,7 @@ const artworks = [
   },
   {
     id: 6,
-    title: "Abstract Black Pink",
+    title: "Black & Pink",
     year: 2026,
     medium: "Spray Paint, Acrylic, and Model Paste",
     dimensions: '84.5" x 48.75"',
@@ -68,7 +68,7 @@ const artworks = [
   },
   {
     id: 5,
-    title: "Cowboy Bang Gun",
+    title: "Cowboy",
     year: 2025,
     medium: "Acrylic, Oil, Model Paste, and Spray Paint",
     dimensions: '72" x 48"',
@@ -86,7 +86,7 @@ const artworks = [
   },
   {
     id: 4,
-    title: "Geisha Dragon",
+    title: "Taming Temptation",
     year: 2025,
     medium: "Acrylic, Oil Pastel, and Spray Paint",
     dimensions: "",
@@ -105,7 +105,7 @@ const artworks = [
     year: 2024,
     medium: "Acrylic, Oil, and Spray Paint",
     dimensions: '18" x 18"',
-    price: 300,
+    price: 400,
     sold: false,
     description: "",
     images: [

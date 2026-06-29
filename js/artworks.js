@@ -58,7 +58,7 @@ const artworks = [
     medium: "Spray Paint, Acrylic, and Model Paste",
     dimensions: '84.5" x 48.75"',
     price: 1800,
-    sold: false,
+    sold: true,
     description: "",
     images: [
       "/images/abstract-erics-black-pink/abstract-black-pink-blue-eric.jpeg"

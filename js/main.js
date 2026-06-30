@@ -169,6 +169,20 @@ if (paintingLayout && typeof artworks !== 'undefined') {
   }
 }
 
+// ── Email signup ──
+document.querySelectorAll('.email-signup-form').forEach(form => {
+  form.removeAttribute('target');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      await fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' });
+    } catch (_) {}
+    const section = form.closest('.email-signup');
+    section.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-size:20px;padding:40px 0;">Thanks for signing up.</p>';
+  });
+});
+
 // Pre-fill contact form subject if coming from a painting page
 const reField = document.getElementById('contactSubject');
 if (reField) {

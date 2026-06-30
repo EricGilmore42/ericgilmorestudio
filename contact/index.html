@@ -38,7 +38,12 @@
     </div>
 
     <div class="contact-right">
-      <form class="contact-form" name="contact" method="POST" action="mailto:ericgilmorestudio@gmail.com" enctype="text/plain">
+      <form class="contact-form" method="POST" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value="e6bacde8-67a0-4b05-8ce4-2b1316d9ae37">
+        <input type="hidden" name="subject" value="New message from ericgilmorestudio.com">
+        <input type="hidden" name="redirect" value="https://ericgilmorestudio.com/contact/?sent=true">
+        <input type="checkbox" name="botcheck" style="display:none">
+
         <div class="form-group">
           <label class="form-label" for="contactName">Name</label>
           <input class="form-input" type="text" id="contactName" name="name" required autocomplete="name">
@@ -65,8 +70,8 @@
   </div>
 
   <section class="email-signup">
-    <p class="email-signup-label">Stay Updated</p>
-    <h2 class="email-signup-heading">Join the List</h2>
+    <p class="email-signup-label">New Work & Updates</p>
+    <h2 class="email-signup-heading">Get Notified</h2>
     <form class="email-signup-form ml-block-form" action="https://assets.mailerlite.com/jsonp/2481450/forms/191724880784262954/subscribe" method="post" target="_blank">
       <input class="email-signup-input" type="email" name="fields[email]" placeholder="Your email address" autocomplete="email" required>
       <input type="hidden" name="ml-submit" value="1">
@@ -84,5 +89,11 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    if (new URLSearchParams(window.location.search).get('sent') === 'true') {
+      const form = document.querySelector('.contact-form');
+      form.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-size:22px;line-height:1.7;">Message sent — thanks for reaching out. I\'ll get back to you soon.</p>';
+    }
+  </script>
 </body>
 </html>

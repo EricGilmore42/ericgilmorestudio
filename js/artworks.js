@@ -1,5 +1,24 @@
 const artworks = [
   {
+    id: 8,
+    title: "Facing Sound V1",
+    year: 2026,
+    medium: "Acrylic, Sand, Paste, and Spray Paint",
+    dimensions: '84.5" x 48.75"',
+    price: 1500,
+    sold: false,
+    description: "",
+    images: [
+      "/images/facing-sound-v1/Facing-Sound-V1-Header.jpg",
+      "/images/facing-sound-v1/IMG_0281.jpeg",
+      "/images/facing-sound-v1/IMG_0282.jpeg",
+      "/images/facing-sound-v1/IMG_0283.jpeg",
+      "/images/facing-sound-v1/IMG_0285.jpeg"
+    ],
+    thumbnail: "/images/facing-sound-v1/Facing-Sound-V1-Header.jpg",
+    placeholder: { color: "#a0a8b0", ratio: 1 }
+  },
+  {
     id: 1,
     title: "Cowgirl",
     year: 2026,

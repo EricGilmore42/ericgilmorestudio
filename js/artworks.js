@@ -76,11 +76,11 @@ const artworks = [
   },
   {
     id: 7,
-    title: "Pink Leopard",
+    title: "Leopard Smells Blood",
     year: 2025,
     medium: "Acrylic and Oil Stick",
-    dimensions: '18" x 18"',
-    price: 400,
+    dimensions: '17" x 17"',
+    price: 450,
     sold: false,
     description: "",
     images: [
@@ -142,8 +142,8 @@ const artworks = [
     title: "Girl in the Night",
     year: 2024,
     medium: "Acrylic, Oil, and Spray Paint",
-    dimensions: '18" x 18"',
-    price: 400,
+    dimensions: '17" x 17"',
+    price: 450,
     sold: false,
     description: "",
     images: [

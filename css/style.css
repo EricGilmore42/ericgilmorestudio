@@ -425,6 +425,29 @@ body {
   max-width: 320px;
 }
 
+.venmo-address-group {
+  max-width: 320px;
+}
+
+.venmo-address-input {
+  min-height: 70px;
+}
+
+.venmo-address-error {
+  display: none;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #c0392b;
+}
+
+.venmo-address-group.is-invalid .venmo-address-input {
+  border-color: #c0392b;
+}
+
+.venmo-address-group.is-invalid .venmo-address-error {
+  display: block;
+}
+
 /* ── Exhibits Page ── */
 .page-header {
   padding: 120px 40px 60px;

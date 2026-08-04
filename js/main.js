@@ -256,18 +256,50 @@ if (productLayout && typeof shopProducts !== 'undefined') {
 
     if (!product.sold) {
       if (product.type === 'sticker') {
-        const note = `${product.title} — mailing address: `;
-        const buy = document.createElement('a');
+        const addressGroup = document.createElement('div');
+        addressGroup.className = 'form-group venmo-address-group';
+
+        const addressLabel = document.createElement('label');
+        addressLabel.className = 'form-label';
+        addressLabel.htmlFor = 'mailingAddress';
+        addressLabel.textContent = 'Mailing Address';
+        addressGroup.appendChild(addressLabel);
+
+        const addressField = document.createElement('textarea');
+        addressField.className = 'form-textarea venmo-address-input';
+        addressField.id = 'mailingAddress';
+        addressField.rows = 3;
+        addressField.placeholder = 'Street, City, State, ZIP';
+        addressGroup.appendChild(addressField);
+
+        const addressError = document.createElement('p');
+        addressError.className = 'venmo-address-error';
+        addressError.textContent = 'Enter your mailing address so we know where to ship it.';
+        addressGroup.appendChild(addressError);
+
+        right.appendChild(addressGroup);
+
+        const buy = document.createElement('button');
+        buy.type = 'button';
         buy.className = 'painting-inquire';
-        buy.href = `https://venmo.com/${VENMO_HANDLE}?txn=pay&amount=${product.price}&note=${encodeURIComponent(note)}`;
-        buy.target = '_blank';
-        buy.rel = 'noopener noreferrer';
         buy.textContent = `Buy via Venmo — $${product.price}`;
+        buy.addEventListener('click', () => {
+          const address = addressField.value.trim();
+          if (!address) {
+            addressGroup.classList.add('is-invalid');
+            addressField.focus();
+            return;
+          }
+          addressGroup.classList.remove('is-invalid');
+          const note = `${product.title} — Ship to: ${address}`;
+          const url = `https://venmo.com/${VENMO_HANDLE}?txn=pay&amount=${product.price}&note=${encodeURIComponent(note)}`;
+          window.open(url, '_blank', 'noopener,noreferrer');
+        });
         right.appendChild(buy);
 
         const instructions = document.createElement('p');
         instructions.className = 'venmo-instructions';
-        instructions.textContent = `Venmo @${VENMO_HANDLE} for $${product.price} and include your mailing address in the payment note — that's how we'll know where to ship it.`;
+        instructions.textContent = `Enter your mailing address above, then tap Buy via Venmo — we'll pre-fill it into the $${product.price} payment note to @${VENMO_HANDLE} so you don't have to type it twice.`;
         right.appendChild(instructions);
       } else {
         const inquire = document.createElement('a');

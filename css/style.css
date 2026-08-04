@@ -417,20 +417,50 @@ body {
 }
 .painting-inquire:hover { background: #333; }
 
-.venmo-instructions {
-  margin-top: 14px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #666;
+.venmo-purchase-box {
+  margin-top: 32px;
+  padding: 24px;
   max-width: 320px;
+  background: #fafafa;
+  border: 1px solid #eee;
 }
 
 .venmo-address-group {
-  max-width: 320px;
+  margin-bottom: 0;
+}
+
+.venmo-address-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
 }
 
 .venmo-address-input {
-  min-height: 70px;
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fff;
+  padding: 10px 12px;
+  min-height: 56px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #111;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+.venmo-address-input::placeholder {
+  color: #bbb;
+}
+
+.venmo-address-input:focus {
+  border-color: #111;
 }
 
 .venmo-address-error {
@@ -446,6 +476,22 @@ body {
 
 .venmo-address-group.is-invalid .venmo-address-error {
   display: block;
+}
+
+.venmo-buy-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+  box-sizing: border-box;
+}
+
+.venmo-instructions {
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #888;
 }
 
 /* ── Exhibits Page ── */

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Eric Gilmore</title>
+  <title>Shop — Eric Gilmore</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -32,40 +32,18 @@
 
   <a class="site-name-link" href="index.html">Eric Gilmore</a>
 
-  <!-- Bio section -->
-  <section class="about-section">
-    <div class="about-grid">
+  <div class="page-header">
+    <h1>Shop</h1>
+  </div>
 
-      <div class="about-photo-col">
-        <img src="/images/eric-headshot/eric-gilmore-headshot.jpeg" alt="Eric Gilmore">
-      </div>
-
-      <div class="about-text-col">
-        <p class="about-bio">
-          Eric Gilmore (2000, Dallas, Texas) is an artist and painter working with mixed media, including acrylic, oil, spray paint, and different types of techniques to bring a unique texture and depth to his work. Located in Los Angeles, California his paintings often explore themes of identity, feelings, anxiety, culture, and the human experience. Focusing on vibrant colors and traditional imagery lots of his work contains many layers and hidden details. Combining elements of neo-expressionism, street art, contemporary, abstract, and traditional tattoo art, to bring a unique look at how he sees the world.
-        </p>
-      </div>
-
-    </div>
+  <section class="gallery-section" id="stickers">
+    <h2>Stickers</h2>
+    <div class="gallery" id="stickerGallery"></div>
   </section>
 
-  <!-- Instagram section -->
-  <section class="instagram-section">
-    <div class="instagram-header">
-      <h2 class="instagram-label">Follow Along</h2>
-      <a class="instagram-handle" href="https://www.instagram.com/eeeerrricccc" target="_blank" rel="noopener noreferrer">
-        @eeeerrricccc
-      </a>
-    </div>
-
-    <behold-widget feed-id="dPyx37j0oHDRYqXcAyXP"></behold-widget>
-    <script>
-      (() => {
-        const d=document,s=d.createElement("script");s.type="module";
-        s.src="https://w.behold.so/widget.js";d.head.append(s);
-      })();
-    </script>
-
+  <section class="gallery-section" id="prints">
+    <h2>Prints</h2>
+    <div class="gallery" id="printGallery"></div>
   </section>
 
   <section class="email-signup">
@@ -87,6 +65,7 @@
     <a href="https://www.instagram.com/eeeerrricccc" target="_blank" rel="noopener noreferrer">@eeeerrricccc</a>
   </footer>
 
+  <script src="js/shop-products.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

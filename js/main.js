@@ -25,33 +25,31 @@ if (menuBtn && menuOverlay) {
   });
 }
 
-// ── Gallery (index.html) ──
-const galleryEl = document.getElementById('gallery');
-
-if (galleryEl && typeof artworks !== 'undefined') {
-  artworks.forEach(work => {
+// ── Gallery grid (shared by index.html and shop.html) ──
+function renderGallery(el, items, linkBuilder, soldLabel = 'Sold') {
+  items.forEach(item => {
     const a = document.createElement('a');
     a.className = 'artwork-item';
-    a.href = `/painting/?id=${work.id}`;
-    a.setAttribute('aria-label', work.title);
+    a.href = linkBuilder(item);
+    a.setAttribute('aria-label', item.title);
 
-    const hasImage = work.images && work.images.length > 0;
-    const thumbSrc = work.thumbnail || (hasImage ? work.images[0] : null);
+    const hasImage = item.images && item.images.length > 0;
+    const thumbSrc = item.thumbnail || (hasImage ? item.images[0] : null);
 
     if (thumbSrc) {
       const img = document.createElement('img');
       img.className = 'artwork-img';
       img.src = thumbSrc;
-      img.alt = work.title;
+      img.alt = item.title;
       img.loading = 'lazy';
       a.appendChild(img);
     } else if (!thumbSrc) {
-      // Colored placeholder sized to the painting's aspect ratio
+      // Colored placeholder sized to the item's aspect ratio
       const ph = document.createElement('div');
       ph.className = 'artwork-placeholder';
-      const ratio = work.placeholder.ratio;
+      const ratio = item.placeholder.ratio;
       // padding-top trick: height = width × (h/w)
-      ph.style.cssText = `background:${work.placeholder.color}; padding-top:${(ratio * 100).toFixed(2)}%;`;
+      ph.style.cssText = `background:${item.placeholder.color}; padding-top:${(ratio * 100).toFixed(2)}%;`;
       a.appendChild(ph);
     }
 
@@ -59,8 +57,8 @@ if (galleryEl && typeof artworks !== 'undefined') {
     overlay.className = 'artwork-hover';
 
     const tag = document.createElement('span');
-    tag.className = work.sold ? 'artwork-price-tag is-sold' : 'artwork-price-tag';
-    tag.textContent = work.sold ? 'Sold' : `$${work.price.toLocaleString()}`;
+    tag.className = item.sold ? 'artwork-price-tag is-sold' : 'artwork-price-tag';
+    tag.textContent = item.sold ? soldLabel : `$${item.price.toLocaleString()}`;
     overlay.appendChild(tag);
     a.appendChild(overlay);
 
@@ -75,8 +73,67 @@ if (galleryEl && typeof artworks !== 'undefined') {
       });
     }
 
-    galleryEl.appendChild(a);
+    el.appendChild(a);
   });
+}
+
+// ── Gallery (index.html) ──
+const galleryEl = document.getElementById('gallery');
+
+if (galleryEl && typeof artworks !== 'undefined') {
+  renderGallery(galleryEl, artworks, work => `/painting/?id=${work.id}`);
+}
+
+// ── Shop galleries (shop.html) ──
+const stickerGalleryEl = document.getElementById('stickerGallery');
+const printGalleryEl = document.getElementById('printGallery');
+
+if (typeof shopProducts !== 'undefined') {
+  if (stickerGalleryEl) {
+    renderGallery(
+      stickerGalleryEl,
+      shopProducts.filter(p => p.type === 'sticker'),
+      product => `/product/?id=${product.id}`,
+      'Sold Out'
+    );
+  }
+  if (printGalleryEl) {
+    renderGallery(
+      printGalleryEl,
+      shopProducts.filter(p => p.type === 'print'),
+      product => `/product/?id=${product.id}`,
+      'Sold Out'
+    );
+  }
+}
+
+// ── Shared detail-page media column (painting.html and product.html) ──
+function buildMediaColumn(item) {
+  const left = document.createElement('div');
+  left.className = 'painting-left';
+
+  const hasImages = item.images && item.images.length > 0;
+  if (hasImages) {
+    const stack = document.createElement('div');
+    stack.className = 'painting-image-stack';
+    item.images.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.className = 'painting-stack-img';
+      img.src = src;
+      img.alt = `${item.title} — view ${i + 1}`;
+      img.loading = i === 0 ? 'eager' : 'lazy';
+      stack.appendChild(img);
+    });
+    left.appendChild(stack);
+  } else {
+    const ph = document.createElement('div');
+    ph.className = 'painting-main-placeholder';
+    const ratio = item.placeholder.ratio;
+    ph.style.cssText = `background:${item.placeholder.color}; padding-top:${Math.min(ratio * 100, 80).toFixed(2)}%; max-height:70vh;`;
+    left.appendChild(ph);
+  }
+
+  return left;
 }
 
 // ── Painting Detail (painting.html) ──
@@ -92,32 +149,7 @@ if (paintingLayout && typeof artworks !== 'undefined') {
   } else {
     document.title = `${work.title} — Eric Gilmore`;
 
-    const hasImages = work.images && work.images.length > 0;
-
-    // Left side
-    const left = document.createElement('div');
-    left.className = 'painting-left';
-
-    if (hasImages) {
-      const stack = document.createElement('div');
-      stack.className = 'painting-image-stack';
-      work.images.forEach((src, i) => {
-        const img = document.createElement('img');
-        img.className = 'painting-stack-img';
-        img.src = src;
-        img.alt = `${work.title} — view ${i + 1}`;
-        img.loading = i === 0 ? 'eager' : 'lazy';
-        stack.appendChild(img);
-      });
-      left.appendChild(stack);
-    } else {
-      // Placeholder
-      const ph = document.createElement('div');
-      ph.className = 'painting-main-placeholder';
-      const ratio = work.placeholder.ratio;
-      ph.style.cssText = `background:${work.placeholder.color}; padding-top:${Math.min(ratio * 100, 80).toFixed(2)}%; max-height:70vh;`;
-      left.appendChild(ph);
-    }
+    const left = buildMediaColumn(work);
 
     // Right side
     const right = document.createElement('div');
@@ -166,6 +198,88 @@ if (paintingLayout && typeof artworks !== 'undefined') {
 
     paintingLayout.appendChild(left);
     paintingLayout.appendChild(right);
+  }
+}
+
+// ── Product Detail (product.html) ──
+const productLayout = document.getElementById('productLayout');
+const VENMO_HANDLE = 'EricGilmore42';
+
+if (productLayout && typeof shopProducts !== 'undefined') {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'), 10);
+  const product = shopProducts.find(p => p.id === id);
+
+  if (!product) {
+    productLayout.innerHTML = '<p style="padding:80px 40px;color:#999;">Item not found.</p>';
+  } else {
+    document.title = `${product.title} — Eric Gilmore`;
+
+    const left = buildMediaColumn(product);
+
+    const right = document.createElement('div');
+    right.className = 'painting-right';
+
+    const title = document.createElement('h1');
+    title.className = 'painting-title';
+    title.textContent = product.title;
+    right.appendChild(title);
+
+    const meta = document.createElement('ul');
+    meta.className = 'painting-meta';
+    const metaFields = [
+      ['Type', product.type === 'sticker' ? 'Sticker' : 'Print'],
+      ['Dimensions', product.dimensions],
+      ['Material', product.material]
+    ];
+    metaFields.forEach(([label, value]) => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${label}</span><span>${value}</span>`;
+      meta.appendChild(li);
+    });
+    right.appendChild(meta);
+
+    const priceEl = document.createElement('p');
+    priceEl.className = product.sold ? 'painting-price is-sold' : 'painting-price';
+    priceEl.textContent = product.sold ? 'Sold Out' : `$${product.price.toLocaleString()}`;
+    right.appendChild(priceEl);
+
+    const desc = document.createElement('div');
+    desc.className = 'painting-description';
+    (product.description || '').split('\n\n').forEach(para => {
+      if (!para) return;
+      const p = document.createElement('p');
+      p.textContent = para;
+      desc.appendChild(p);
+    });
+    right.appendChild(desc);
+
+    if (!product.sold) {
+      if (product.type === 'sticker') {
+        const note = `${product.title} — mailing address: `;
+        const buy = document.createElement('a');
+        buy.className = 'painting-inquire';
+        buy.href = `https://venmo.com/${VENMO_HANDLE}?txn=pay&amount=${product.price}&note=${encodeURIComponent(note)}`;
+        buy.target = '_blank';
+        buy.rel = 'noopener noreferrer';
+        buy.textContent = `Buy via Venmo — $${product.price}`;
+        right.appendChild(buy);
+
+        const instructions = document.createElement('p');
+        instructions.className = 'venmo-instructions';
+        instructions.textContent = `Venmo @${VENMO_HANDLE} for $${product.price} and include your mailing address in the payment note — that's how we'll know where to ship it.`;
+        right.appendChild(instructions);
+      } else {
+        const inquire = document.createElement('a');
+        inquire.className = 'painting-inquire';
+        inquire.href = `/contact/?re=${encodeURIComponent(product.title)}`;
+        inquire.textContent = 'Inquire About This Print';
+        right.appendChild(inquire);
+      }
+    }
+
+    productLayout.appendChild(left);
+    productLayout.appendChild(right);
   }
 }
 

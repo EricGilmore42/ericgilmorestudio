@@ -417,6 +417,14 @@ body {
 }
 .painting-inquire:hover { background: #333; }
 
+.venmo-instructions {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #666;
+  max-width: 320px;
+}
+
 /* ── Exhibits Page ── */
 .page-header {
   padding: 120px 40px 60px;

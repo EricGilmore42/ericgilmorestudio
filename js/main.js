@@ -294,7 +294,7 @@ if (productLayout && typeof shopProducts !== 'undefined') {
             return;
           }
           addressGroup.classList.remove('is-invalid');
-          const note = `${product.title} — Ship to: ${address}`;
+          const note = `${product.title}, Ship to ${address}`;
           const url = `https://venmo.com/${VENMO_HANDLE}?txn=pay&amount=${product.price}&note=${encodeURIComponent(note)}`;
           window.open(url, '_blank', 'noopener,noreferrer');
         });

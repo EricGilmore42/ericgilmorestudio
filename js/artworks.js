@@ -1,5 +1,23 @@
 const artworks = [
   {
+    id: 10,
+    title: "Facing Sound V3",
+    year: 2026,
+    medium: "Acrylic, Oil Stick, Sand, Paste, and Spray Paint",
+    dimensions: '84.5" x 48.75"',
+    price: 1500,
+    sold: false,
+    description: "",
+    images: [
+      "/images/facing-sound-v3/facing-sound-v3-header.jpg",
+      "/images/facing-sound-v3/IMG_1062.jpeg",
+      "/images/facing-sound-v3/IMG_1063.jpeg",
+      "/images/facing-sound-v3/IMG_1064.jpeg"
+    ],
+    thumbnail: "/images/facing-sound-v3/facing-sound-v3-header.jpg",
+    placeholder: { color: "#b8b4c2", ratio: 1 }
+  },
+  {
     id: 9,
     title: "Facing Sound V2",
     year: 2026,

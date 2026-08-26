@@ -320,6 +320,34 @@ if (productLayout && typeof shopProducts !== 'undefined') {
   }
 }
 
+// ── About photo carousel (about.html) ──
+const aboutCarousel = document.getElementById('aboutCarousel');
+
+if (aboutCarousel) {
+  const slides = Array.from(aboutCarousel.querySelectorAll('img'));
+  const prevBtn = aboutCarousel.querySelector('.carousel-prev');
+  const nextBtn = aboutCarousel.querySelector('.carousel-next');
+  let current = slides.findIndex(img => img.classList.contains('is-active'));
+  if (current < 0) current = 0;
+  let timer;
+
+  function showSlide(index) {
+    slides[current].classList.remove('is-active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+  }
+
+  function startAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(() => showSlide(current + 1), 5000);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { showSlide(current - 1); startAutoplay(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { showSlide(current + 1); startAutoplay(); });
+
+  if (slides.length > 1) startAutoplay();
+}
+
 // ── Email signup ──
 document.querySelectorAll('.email-signup-form').forEach(form => {
   form.removeAttribute('target');

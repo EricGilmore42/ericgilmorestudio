@@ -25,6 +25,7 @@ const shopProducts = [
     sold: false,
     dimensions: '9" x 12"',
     material: "Fine Art Print, Archival Paper",
+    prodigiSku: "GLOBAL-FAP-9X12",
     description: "",
     images: [
       "/images/cowgirl-drawings/pink-eye-cowgirl.jpeg"
@@ -40,6 +41,7 @@ const shopProducts = [
     sold: false,
     dimensions: '9" x 12"',
     material: "Fine Art Print, Archival Paper",
+    prodigiSku: "GLOBAL-FAP-9X12",
     description: "",
     images: [
       "/images/cowgirl-drawings/purple-bottom-cowgirl.jpeg"

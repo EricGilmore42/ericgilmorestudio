@@ -494,6 +494,22 @@ body {
   color: #888;
 }
 
+.venmo-purchase-box.print-purchase-box {
+  max-width: 380px;
+}
+
+.print-shipping-field {
+  margin-bottom: 16px;
+}
+
+.print-shipping-field:last-child {
+  margin-bottom: 0;
+}
+
+.print-shipping-field .venmo-address-input {
+  min-height: auto;
+}
+
 /* ── Exhibits Page ── */
 .page-header {
   padding: 120px 40px 60px;

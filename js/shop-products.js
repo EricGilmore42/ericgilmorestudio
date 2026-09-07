@@ -27,9 +27,9 @@ const shopProducts = [
     material: "Fine Art Print, Archival Paper, Hand-Signed",
     description: "",
     images: [
-      "/images/cowgirl-drawings/pink-eye-cowgirl.jpeg"
+      "/images/cowgirl-scans/Scan-Pink-Cowgirl.jpg"
     ],
-    thumbnail: "/images/cowgirl-drawings/pink-eye-cowgirl.jpeg",
+    thumbnail: "/images/cowgirl-scans/Scan-Pink-Cowgirl.jpg",
     placeholder: { color: "#d8c8c8", ratio: 1.33 }
   },
   {
@@ -42,9 +42,24 @@ const shopProducts = [
     material: "Fine Art Print, Archival Paper, Hand-Signed",
     description: "",
     images: [
-      "/images/cowgirl-drawings/purple-bottom-cowgirl.jpeg"
+      "/images/cowgirl-scans/Scan-Red-Cowgirl.jpg"
     ],
-    thumbnail: "/images/cowgirl-drawings/purple-bottom-cowgirl.jpeg",
+    thumbnail: "/images/cowgirl-scans/Scan-Red-Cowgirl.jpg",
     placeholder: { color: "#8a7ab0", ratio: 1.33 }
+  },
+  {
+    id: 6,
+    type: "print",
+    title: "Cowgirl Three",
+    price: 100,
+    sold: false,
+    dimensions: '9" x 12"',
+    material: "Fine Art Print, Archival Paper, Hand-Signed",
+    description: "",
+    images: [
+      "/images/cowgirl-scans/Scan-Jap-Cowgirl.jpg"
+    ],
+    thumbnail: "/images/cowgirl-scans/Scan-Jap-Cowgirl.jpg",
+    placeholder: { color: "#c05050", ratio: 1.33 }
   }
 ];

@@ -20,7 +20,7 @@ const shopProducts = [
   {
     id: 4,
     type: "print",
-    title: "Pink Eye Cowgirl",
+    title: "Cowgirl Two",
     price: 100,
     sold: false,
     dimensions: '9" x 12"',
@@ -35,7 +35,7 @@ const shopProducts = [
   {
     id: 5,
     type: "print",
-    title: "Purple Bottom Cowgirl",
+    title: "Cowgirl One",
     price: 100,
     sold: false,
     dimensions: '9" x 12"',

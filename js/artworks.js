@@ -1,9 +1,9 @@
 const artworks = [
   {
     id: 13,
-    title: "Purple Bottom Cowgirl",
+    title: "Cowgirl One",
     year: 2026,
-    medium: "Graphite and Acrylic on Paper",
+    medium: "Spray Paint, Acrylic, and Wax",
     dimensions: '9" x 12"',
     price: 250,
     sold: false,
@@ -16,9 +16,9 @@ const artworks = [
   },
   {
     id: 12,
-    title: "Pink Eye Cowgirl",
+    title: "Cowgirl Two",
     year: 2026,
-    medium: "Graphite and Acrylic on Paper",
+    medium: "Spray Paint, Acrylic, and Wax",
     dimensions: '9" x 12"',
     price: 250,
     sold: false,

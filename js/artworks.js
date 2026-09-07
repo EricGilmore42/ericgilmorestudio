@@ -1,5 +1,35 @@
 const artworks = [
   {
+    id: 13,
+    title: "Purple Bottom Cowgirl",
+    year: 2026,
+    medium: "Graphite and Acrylic on Paper",
+    dimensions: '9" x 12"',
+    price: 250,
+    sold: false,
+    description: "",
+    images: [
+      "/images/cowgirl-drawings/purple-bottom-cowgirl.jpeg"
+    ],
+    thumbnail: "/images/cowgirl-drawings/purple-bottom-cowgirl.jpeg",
+    placeholder: { color: "#8a7ab0", ratio: 1.33 }
+  },
+  {
+    id: 12,
+    title: "Pink Eye Cowgirl",
+    year: 2026,
+    medium: "Graphite and Acrylic on Paper",
+    dimensions: '9" x 12"',
+    price: 250,
+    sold: false,
+    description: "",
+    images: [
+      "/images/cowgirl-drawings/pink-eye-cowgirl.jpeg"
+    ],
+    thumbnail: "/images/cowgirl-drawings/pink-eye-cowgirl.jpeg",
+    placeholder: { color: "#d8c8c8", ratio: 1.33 }
+  },
+  {
     id: 11,
     title: "Facing Sound V4",
     year: 2026,

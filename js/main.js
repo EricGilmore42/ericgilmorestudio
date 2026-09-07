@@ -86,7 +86,6 @@ if (galleryEl && typeof artworks !== 'undefined') {
 
 // ── Shop galleries (shop.html) ──
 const stickerGalleryEl = document.getElementById('stickerGallery');
-const drawingGalleryEl = document.getElementById('drawingGallery');
 const printGalleryEl = document.getElementById('printGallery');
 
 if (typeof shopProducts !== 'undefined') {
@@ -94,14 +93,6 @@ if (typeof shopProducts !== 'undefined') {
     renderGallery(
       stickerGalleryEl,
       shopProducts.filter(p => p.type === 'sticker'),
-      product => `/product/?id=${product.id}`,
-      'Sold Out'
-    );
-  }
-  if (drawingGalleryEl) {
-    renderGallery(
-      drawingGalleryEl,
-      shopProducts.filter(p => p.type === 'drawing'),
       product => `/product/?id=${product.id}`,
       'Sold Out'
     );
@@ -114,18 +105,6 @@ if (typeof shopProducts !== 'undefined') {
       'Sold Out'
     );
   }
-}
-
-// ── Drawings preview (index.html) ──
-const homeDrawingsGalleryEl = document.getElementById('drawingsGallery');
-
-if (homeDrawingsGalleryEl && typeof shopProducts !== 'undefined') {
-  renderGallery(
-    homeDrawingsGalleryEl,
-    shopProducts.filter(p => p.type === 'drawing'),
-    product => `/product/?id=${product.id}`,
-    'Sold Out'
-  );
 }
 
 // ── Shared detail-page media column (painting.html and product.html) ──
@@ -249,7 +228,7 @@ if (productLayout && typeof shopProducts !== 'undefined') {
     const meta = document.createElement('ul');
     meta.className = 'painting-meta';
     const metaFields = [
-      ['Type', product.type === 'sticker' ? 'Sticker' : product.type === 'drawing' ? 'Drawing' : 'Print'],
+      ['Type', product.type === 'sticker' ? 'Sticker' : 'Print'],
       ['Dimensions', product.dimensions],
       ['Material', product.material]
     ];
@@ -331,7 +310,7 @@ if (productLayout && typeof shopProducts !== 'undefined') {
         const inquire = document.createElement('a');
         inquire.className = 'painting-inquire';
         inquire.href = `/contact/?re=${encodeURIComponent(product.title)}`;
-        inquire.textContent = product.type === 'drawing' ? 'Inquire About This Drawing' : 'Inquire About This Print';
+        inquire.textContent = 'Inquire About This Print';
         right.appendChild(inquire);
       }
     }

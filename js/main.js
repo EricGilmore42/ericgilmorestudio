@@ -204,8 +204,6 @@ if (paintingLayout && typeof artworks !== 'undefined') {
 // ── Product Detail (product.html) ──
 const productLayout = document.getElementById('productLayout');
 const VENMO_HANDLE = 'EricGilmore42';
-// Set this after deploying cloudflare-worker/prodigi-order-worker.js
-const PRODIGI_ORDER_ENDPOINT = 'https://prodigi-orders.YOUR-SUBDOMAIN.workers.dev/api/orders';
 
 if (productLayout && typeof shopProducts !== 'undefined') {
   const params = new URLSearchParams(window.location.search);
@@ -257,7 +255,7 @@ if (productLayout && typeof shopProducts !== 'undefined') {
     right.appendChild(desc);
 
     if (!product.sold) {
-      if (product.type === 'sticker') {
+      if (product.type === 'sticker' || product.type === 'print') {
         const purchaseBox = document.createElement('div');
         purchaseBox.className = 'venmo-purchase-box';
 
@@ -305,104 +303,6 @@ if (productLayout && typeof shopProducts !== 'undefined') {
         const instructions = document.createElement('p');
         instructions.className = 'venmo-instructions';
         instructions.textContent = `We'll pre-fill your address into the $${product.price} payment note to @${VENMO_HANDLE} so you don't have to type it twice.`;
-        purchaseBox.appendChild(instructions);
-
-        right.appendChild(purchaseBox);
-      } else if (product.type === 'print') {
-        const purchaseBox = document.createElement('div');
-        purchaseBox.className = 'venmo-purchase-box print-purchase-box';
-
-        const shippingFields = [
-          ['printName', 'Full Name', 'text', 'name'],
-          ['printEmail', 'Email', 'email', 'email'],
-          ['printAddress1', 'Address Line 1', 'text', 'address-line1'],
-          ['printAddress2', 'Address Line 2 (optional)', 'text', 'address-line2'],
-          ['printCity', 'City', 'text', 'address-level2'],
-          ['printState', 'State', 'text', 'address-level1'],
-          ['printZip', 'ZIP Code', 'text', 'postal-code']
-        ];
-        const inputs = {};
-
-        shippingFields.forEach(([id, label, type, autocomplete]) => {
-          const field = document.createElement('div');
-          field.className = 'print-shipping-field';
-
-          const l = document.createElement('label');
-          l.className = 'venmo-address-label';
-          l.htmlFor = id;
-          l.textContent = label;
-          field.appendChild(l);
-
-          const input = document.createElement('input');
-          input.className = 'venmo-address-input';
-          input.type = type;
-          input.id = id;
-          input.autocomplete = autocomplete;
-          field.appendChild(input);
-
-          purchaseBox.appendChild(field);
-          inputs[id] = input;
-        });
-
-        const addressError = document.createElement('p');
-        addressError.className = 'venmo-address-error';
-        addressError.textContent = 'Please fill in your name, email, and shipping address.';
-        purchaseBox.appendChild(addressError);
-
-        const buy = document.createElement('button');
-        buy.type = 'button';
-        buy.className = 'painting-inquire venmo-buy-btn';
-        buy.textContent = `Buy via Venmo — $${product.price}`;
-        buy.addEventListener('click', async () => {
-          const values = {};
-          shippingFields.forEach(([id]) => { values[id] = inputs[id].value.trim(); });
-
-          const required = ['printName', 'printEmail', 'printAddress1', 'printCity', 'printState', 'printZip'];
-          const valid = required.every(id => values[id]);
-
-          if (!valid) {
-            purchaseBox.classList.add('is-invalid');
-            addressError.style.display = 'block';
-            return;
-          }
-          purchaseBox.classList.remove('is-invalid');
-          addressError.style.display = 'none';
-
-          buy.disabled = true;
-          buy.textContent = 'Submitting order…';
-
-          try {
-            await fetch(PRODIGI_ORDER_ENDPOINT, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                title: product.title,
-                price: product.price,
-                sku: product.prodigiSku,
-                imageUrl: `${window.location.origin}${product.images[0]}`,
-                name: values.printName,
-                email: values.printEmail,
-                address1: values.printAddress1,
-                address2: values.printAddress2,
-                city: values.printCity,
-                state: values.printState,
-                postalCode: values.printZip,
-                country: 'US'
-              })
-            });
-          } catch (_) {}
-
-          const note = `${product.title} print, Ship to ${values.printAddress1}, ${values.printCity}, ${values.printState} ${values.printZip}`;
-          const venmoUrl = `https://venmo.com/${VENMO_HANDLE}?txn=pay&amount=${product.price}&note=${encodeURIComponent(note)}`;
-          window.open(venmoUrl, '_blank', 'noopener,noreferrer');
-
-          buy.textContent = 'Order submitted — complete payment in Venmo';
-        });
-        purchaseBox.appendChild(buy);
-
-        const instructions = document.createElement('p');
-        instructions.className = 'venmo-instructions';
-        instructions.textContent = `Pay $${product.price} to @${VENMO_HANDLE} on Venmo to complete your order. We'll print and ship to the address above once payment is confirmed.`;
         purchaseBox.appendChild(instructions);
 
         right.appendChild(purchaseBox);

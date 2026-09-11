@@ -27,7 +27,7 @@ if (menuBtn && menuOverlay) {
 
 // ── Gallery grid (shared by index.html and shop.html) ──
 function renderGallery(el, items, linkBuilder, soldLabel = 'Sold') {
-  items.forEach(item => {
+  items.forEach((item, index) => {
     const a = document.createElement('a');
     a.className = 'artwork-item';
     a.href = linkBuilder(item);
@@ -41,7 +41,12 @@ function renderGallery(el, items, linkBuilder, soldLabel = 'Sold') {
       img.className = 'artwork-img';
       img.src = thumbSrc;
       img.alt = item.title;
-      img.loading = 'lazy';
+      if (index === 0) {
+        img.loading = 'eager';
+        img.fetchPriority = 'high';
+      } else {
+        img.loading = 'lazy';
+      }
       a.appendChild(img);
     } else if (!thumbSrc) {
       // Colored placeholder sized to the item's aspect ratio

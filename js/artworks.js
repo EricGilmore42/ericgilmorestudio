@@ -1,5 +1,23 @@
 const artworks = [
   {
+    id: 14,
+    title: "El Paso",
+    year: 2026,
+    medium: "Acrylic, Oil, and Oops Paint",
+    dimensions: '36" x 50"',
+    price: 800,
+    sold: true,
+    description: "",
+    images: [
+      "/images/el-paso/el_paso.PNG",
+      "/images/el-paso/IMG_1894.jpeg",
+      "/images/el-paso/IMG_1895.jpeg",
+      "/images/el-paso/IMG_1896.jpeg"
+    ],
+    thumbnail: "/images/el-paso/el_paso.PNG",
+    placeholder: { color: "#c25c3a", ratio: 1.39 }
+  },
+  {
     id: 13,
     title: "Cowgirl One",
     year: 2026,

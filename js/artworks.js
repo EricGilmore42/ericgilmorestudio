@@ -72,7 +72,7 @@ const artworks = [
     medium: "Acrylic, Oil Stick, Sand, Paste, and Spray Paint",
     dimensions: '84.5" x 48.75"',
     price: 1500,
-    sold: false,
+    sold: true,
     description: "",
     images: [
       "/images/facing-sound-v3/facing-sound-v3-header.jpg",

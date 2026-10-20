@@ -39,7 +39,7 @@ const artworks = [
     medium: "Spray Paint, Acrylic, and Wax",
     dimensions: '9" x 12"',
     price: 250,
-    sold: false,
+    sold: true,
     description: "",
     images: [
       "/images/cowgirl-drawings/pink-eye-cowgirl.jpeg"

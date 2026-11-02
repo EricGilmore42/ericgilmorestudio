@@ -1,5 +1,25 @@
 const artworks = [
   {
+    id: 15,
+    title: "Internal Noise",
+    year: 2026,
+    medium: "Acrylic, Oil Stick, Sand, Paste, Spray Paint, and Oops Paint",
+    dimensions: '84.5" x 68"',
+    price: 10000,
+    sold: false,
+    description: "",
+    images: [
+      "/images/internal-noise/internal-noise.JPG",
+      "/images/internal-noise/IMG_0105.jpeg",
+      "/images/internal-noise/IMG_0106.jpeg",
+      "/images/internal-noise/IMG_0107.jpeg",
+      "/images/internal-noise/IMG_0108.jpeg",
+      "/images/internal-noise/IMG_0109.jpeg"
+    ],
+    thumbnail: "/images/internal-noise/internal-noise.JPG",
+    placeholder: { color: "#a9abae", ratio: 1.42 }
+  },
+  {
     id: 14,
     title: "El Paso",
     year: 2026,

@@ -1,5 +1,23 @@
 const artworks = [
   {
+    id: 16,
+    title: "Tokyo Racer",
+    year: 2026,
+    medium: "Oil, Acrylic, and House Paint",
+    dimensions: '30" x 31"',
+    price: 1000,
+    sold: false,
+    description: "",
+    images: [
+      "/images/tokyo-racer/tokyo-racer-header.jpg",
+      "/images/tokyo-racer/IMG_0234.jpeg",
+      "/images/tokyo-racer/IMG_0236.jpeg",
+      "/images/tokyo-racer/IMG_0249.jpeg"
+    ],
+    thumbnail: "/images/tokyo-racer/tokyo-racer-header.jpg",
+    placeholder: { color: "#b0a0a8", ratio: 1.03 }
+  },
+  {
     id: 15,
     title: "Internal Noise",
     year: 2026,

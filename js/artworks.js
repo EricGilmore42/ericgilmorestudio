@@ -1,5 +1,22 @@
 const artworks = [
   {
+    id: 17,
+    title: "Please Just Leave",
+    year: 2026,
+    medium: "Oil, Acrylic, and House Paint on Unstretched Canvas",
+    dimensions: '57.5" x 60.5"',
+    price: 5000,
+    sold: false,
+    description: "",
+    images: [
+      "/images/please-just-leave/please-just-leave-header.jpg",
+      "/images/please-just-leave/IMG_0473.jpeg",
+      "/images/please-just-leave/IMG_0474.jpeg"
+    ],
+    thumbnail: "/images/please-just-leave/please-just-leave-header.jpg",
+    placeholder: { color: "#b0a0a8", ratio: 1.03 }
+  },
+  {
     id: 16,
     title: "Tokyo Racer",
     year: 2026,
